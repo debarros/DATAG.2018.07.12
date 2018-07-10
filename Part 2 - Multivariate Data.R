@@ -130,7 +130,7 @@ p <- p + geom_point(mapping = aes(colour = class, shape = drv),
                     position = "jitter", 
                     alpha = .3)
 print(p)
-# That's not bad, but what about plot annotations?
+
 
 
 
