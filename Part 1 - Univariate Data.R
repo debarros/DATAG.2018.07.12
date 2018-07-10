@@ -35,7 +35,7 @@ hb_df <- data.frame(hb)
 # Histogram
 # Always specify a binwidth for the histogram (default is range/30)
 # Ty several binwidths
-px = ggplot(hb_df, aes(x = hb))                           # set up the plot stub
+px = ggplot(data = hb_df, mapping = aes(x = hb))                           # set up the plot stub
 p2 <- px + geom_histogram(binwidth = 5) 
 p2 <- p2 + labs(title = "Modern Englishman head breadth")
 print(p2)
@@ -45,7 +45,7 @@ print(p2)
 # Stripchart (aka Dotplot)
 # We are going to use geom_point here, which requires both x and y.
 # We want the data spread horizontally, so we'll use hb and the x variable and leave the y variable blank.
-px0 <- ggplot(hb_df, aes(x = hb, y = ""))
+px0 <- ggplot(data = hb_df, mapping = aes(x = hb, y = ""))
 p1 <- px0 + geom_point(position = position_jitter(h = 0.1))           # add a geom layer with points plotted
 p1 <- p1 + labs(title = "Head Breadth") + xlab("head breadth (mm)")   # add labels
 print(p1)
@@ -217,9 +217,9 @@ x5_df <- data.frame(x5)
 
 # Density Histogram 
 p1 <- ggplot(x5_df, aes(x = x5))
-p1 <- p1 + geom_histogram(aes(y = ..density..)
-                          , binwidth = 0.5
-                          , colour = "black", fill = "white")
+p1 <- p1 + geom_histogram(aes(y = ..density..), 
+                          binwidth = 0.5, 
+                          colour = "black", fill = "white")
 print(p1)
 
 # Overlay with transparent density plot
@@ -227,9 +227,9 @@ p1 <- p1 + geom_density(alpha = 0.1, fill = "#FF6666")
 print(p1)
 
 # Add a carpet of points
-p1 <- p1 + geom_point(aes(y = -0.001)
-                      , position = position_jitter(height = 0.0005)
-                      , alpha = 1/5)
+p1 <- p1 + geom_point(aes(y = -0.001), 
+                      position = position_jitter(height = 0.0005), 
+                      alpha = 1/5)
 print(p1)
 
 
